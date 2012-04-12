@@ -1,8 +1,8 @@
 <idea-plugin version="2">
   <name>Jumper</name>
-  <description>short description of the plugin</description>
-  <version>1.0</version>
-  <vendor>YourCompany</vendor>
+  <description>Plugin for IntelliJ for jumping to the next/prev opening parenthesis or comma</description>
+  <version>0.1</version>
+  <vendor>Artur Safin</vendor>
 
   <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
   <idea-version since-build="107.105"/>
