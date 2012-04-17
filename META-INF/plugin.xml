@@ -1,11 +1,14 @@
 <idea-plugin version="2">
+  <id>Jumper</id>
   <name>Jumper</name>
   <description>Plugin for IntelliJ for jumping to the next/prev opening parenthesis or comma</description>
-  <version>0.1</version>
-  <vendor>Artur Safin</vendor>
+  <version>0.2</version>
+  <vendor email="treilor@gmail.com">Artur Safin</vendor>
 
   <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="107.105"/>
+  <idea-version since-build="111.63"/>
+
+  <depends>com.intellij.modules.platform</depends>
 
   <application-components>
     <!-- Add your application components here -->
@@ -17,14 +20,17 @@
 
   <actions>
     <!-- Add your actions here -->
-      <action id="JumpToNextCharacter" class="JumpToNextCharacterAction" text="JumpToNextCharacter" description="JumpToNextCharacter">
+      <action id="JumpToNextCharacter" class="JumpToNextCharacterAction" text="Jump To Next Character" description="Jump to next ( or , character">
           <add-to-group group-id="ToolsMenu" anchor="last"/>
           <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt RIGHT"/>
       </action>
-      <action id="JumpToPrevCharacterAction" class="JumpToPrevCharacterAction" text="JumpToPrevCharacterAction"
-              description="JumpToPrevCharacterAction">
+      <action id="JumpToPrevCharacterAction" class="JumpToPrevCharacterAction" text="Jump To Prev Character"
+              description="Jump to previous ( or , character">
           <add-to-group group-id="ToolsMenu" anchor="last"/>
           <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt LEFT"/>
+      </action>
+      <action id="JumperSettings" class="JumperSettingsAction" text="Jumper Settings" description="Jumper settings">
+          <add-to-group group-id="ToolsMenu" anchor="last"/>
       </action>
   </actions>
 

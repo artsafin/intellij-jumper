@@ -1,9 +1,6 @@
-import com.intellij.execution.filters.TextConsoleBuilderFactory;
-import com.intellij.execution.ui.ConsoleView;
-import com.intellij.execution.ui.ConsoleViewContentType;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DataKeys;
+import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 
@@ -19,13 +16,13 @@ public abstract class JumpToCharacterAction extends AnAction
     @Override
     public void update(AnActionEvent e) {
         super.update(e);
-        e.getPresentation().setEnabled(e.getData(DataKeys.EDITOR) != null);
+        e.getPresentation().setEnabled(e.getData(PlatformDataKeys.EDITOR) != null);
     }
 
     @Override
     public void actionPerformed(AnActionEvent event)
     {
-        Editor editor = (Editor)event.getData(DataKeys.EDITOR);
+        Editor editor = (Editor)event.getData(PlatformDataKeys.EDITOR);
 
         if (editor == null)
             return;
