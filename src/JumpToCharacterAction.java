@@ -1,10 +1,14 @@
+import com.intellij.codeInsight.hint.HintManager;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.wm.StatusBar;
+import com.intellij.openapi.wm.WindowManager;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,16 +26,41 @@ public abstract class JumpToCharacterAction extends AnAction
     @Override
     public void actionPerformed(AnActionEvent event)
     {
-        Editor editor = (Editor)event.getData(PlatformDataKeys.EDITOR);
+        Editor editor = event.getData(PlatformDataKeys.EDITOR);
 
         if (editor == null)
             return;
 
-        // TODO: make this list to go from the settings of the plugin
-        List<Character> chars = (List<Character>) Arrays.asList(',', '(');
+        Project project = event.getProject();
 
-        doJump(event.getProject(), editor, chars);
+        // TODO: make this list to go from the settings of the plugin
+        PropertiesComponent props = PropertiesComponent.getInstance(project);
+        String strChars = props.getOrInit("jumper_chars", ",(");
+
+
+        List<Character> chars = new ArrayList<Character>();
+        for (char c: strChars.toCharArray())
+            chars.add(c);
+
+        int nextCharPos = getNextEditorPosition(editor, chars);
+
+        final WindowManager windowManager = WindowManager.getInstance();
+        final StatusBar statusBar = windowManager.getStatusBar(project);
+
+        assert statusBar != null;
+
+        if (nextCharPos > 0)
+        {
+            statusBar.setInfo(String.format("Move to position %s.", String.valueOf(nextCharPos + 1)));
+            editor.getCaretModel().moveToOffset(nextCharPos + 1);
+        }
+        else
+        {
+            statusBar.setInfo("Move to position: no position found");
+            HintManager hm = HintManager.getInstance();
+            hm.showInformationHint(editor, "Not found");
+        }
     }
 
-    protected abstract void doJump(Project project, Editor editor, List<Character> chars);
+    protected abstract int getNextEditorPosition(Editor editor, List<Character> chars);
 }

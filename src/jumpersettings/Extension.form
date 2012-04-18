@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="JumperSettings">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="jumpersettings.Extension">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FormLayout">
     <rowspec value="center:d:noGrow"/>
-    <rowspec value="top:4dlu:noGrow"/>
-    <rowspec value="center:max(d;4px):noGrow"/>
     <colspec value="fill:d:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
     <colspec value="fill:d:grow"/>
@@ -19,10 +17,11 @@
           <forms/>
         </constraints>
         <properties>
-          <text value="Characters to jump:"/>
+          <labelFor value="688b6"/>
+          <text value="Characters to jump to:"/>
         </properties>
       </component>
-      <component id="688b6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="688b6" class="javax.swing.JTextField" binding="textField1">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -31,24 +30,6 @@
         </constraints>
         <properties>
           <text value="(,"/>
-        </properties>
-      </component>
-      <component id="5ceeb" class="javax.swing.JButton" binding="mKayButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="M'kay"/>
-        </properties>
-      </component>
-      <component id="8059b" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-          <forms/>
-        </constraints>
-        <properties>
-          <text value="Cancel"/>
         </properties>
       </component>
     </children>

@@ -22,19 +22,20 @@
     <!-- Add your actions here -->
       <action id="JumpToNextCharacter" class="JumpToNextCharacterAction" text="Jump To Next Character" description="Jump to next ( or , character">
           <add-to-group group-id="ToolsMenu" anchor="last"/>
-          <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt RIGHT"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt PERIOD"/>
       </action>
       <action id="JumpToPrevCharacterAction" class="JumpToPrevCharacterAction" text="Jump To Prev Character"
               description="Jump to previous ( or , character">
           <add-to-group group-id="ToolsMenu" anchor="last"/>
-          <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt LEFT"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt COMMA"/>
       </action>
-      <action id="JumperSettings" class="JumperSettingsAction" text="Jumper Settings" description="Jumper settings">
+      <action id="JumperSettings" class="jumpersettings.Action" text="Jumper Settings" description="Jumper settings">
           <add-to-group group-id="ToolsMenu" anchor="last"/>
       </action>
   </actions>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+      <applicationConfigurable instance="jumpersettings.Extension"/>
   </extensions>
 </idea-plugin>
