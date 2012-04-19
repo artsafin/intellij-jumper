@@ -1,3 +1,5 @@
+package com.artsafin.intellij.jumper;
+
 import com.intellij.openapi.editor.Editor;
 
 import java.util.List;
@@ -6,16 +8,17 @@ import java.util.List;
  * @author Artur.Safin <treilor@gmail.com>
  * @licence MIT
  */
-public class JumpToPrevCharacterAction extends JumpToCharacterAction
+public class JumpToNextCharacterAction extends JumpToCharacterAction
 {
     protected int getNextEditorPosition(Editor editor, List<Character> chars)
     {
-        final JumperSearch search = new JumperSearch();
+        JumperSearch search = new JumperSearch();
 
-        return search.prevChar(
-                editor.getCaretModel().getOffset() - 1,
+        return search.nextChar(
+                editor.getCaretModel().getOffset(),
                 editor.getDocument().getCharsSequence(),
                 chars
         );
     }
+
 }

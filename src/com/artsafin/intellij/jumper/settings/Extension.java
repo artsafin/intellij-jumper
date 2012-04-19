@@ -1,5 +1,6 @@
-package jumpersettings;
+package com.artsafin.intellij.jumper.settings;
 
+import com.artsafin.intellij.jumper.JumpToCharacterAction;
 import com.intellij.ide.DataManager;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.actionSystem.DataContext;
@@ -68,7 +69,7 @@ public class Extension implements Configurable {
         Project project = PlatformDataKeys.PROJECT.getData(dataContext);
 
         PropertiesComponent props = PropertiesComponent.getInstance(project);
-        textField1.setText(props.getOrInit("jumper_chars", ",("));
+        textField1.setText(props.getOrInit("jumper_chars", JumpToCharacterAction.defaultJumpChars));
 
         listener = new TextFieldListener();
         listener.setInitialValue(textField1.getText());

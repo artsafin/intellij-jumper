@@ -1,3 +1,5 @@
+package com.artsafin.intellij.jumper;
+
 import java.util.List;
 
 /**

@@ -1,4 +1,4 @@
-package jumpersettings;
+package com.artsafin.intellij.jumper.settings;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
